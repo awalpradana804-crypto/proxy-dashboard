@@ -40,10 +40,11 @@ app.get('/api/device', (req, res) => {
 });
 
 app.get('/localConfig.json', (req, res) => {
-  const host = process.env.RAILWAY_PUBLIC_DOMAIN 
-    ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}/` 
+  const host = req.headers.host 
+    ? `https://${req.headers.host}/` 
     : `http://localhost:${PORT}/`;
   res.json({ verAddr: host, testCodePatch: true });
+});
 });
 
 if (require.main === module) {
