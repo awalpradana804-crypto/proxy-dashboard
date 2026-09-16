@@ -45,7 +45,6 @@ app.get('/localConfig.json', (req, res) => {
     : `http://localhost:${PORT}/`;
   res.json({ verAddr: host, testCodePatch: true });
 });
-});
 
 if (require.main === module) {
   app.listen(PORT, () => console.log(`✅ Server jalan di port ${PORT}`));
